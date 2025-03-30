@@ -11,15 +11,14 @@ import java.util.stream.IntStream;
 
 import static com.wenjie.aoc2024.utils.Utils.readFile;
 
-public class Day01 extends AbstractDay{
-
+public class Day01 extends AbstractDay {
     private final List<Integer> l1;
     private final List<Integer> l2;
 
     public Day01() throws IOException {
-        String s = readFile("day1.txt");
+        this.input = readFile("day1.txt");
 
-        List<int[]> list = Arrays.stream(StringUtils.split(s, "\n")).map(line -> StringUtils.split(line, " "))
+        List<int[]> list = Arrays.stream(StringUtils.split(input, "\n")).map(line -> StringUtils.split(line, " "))
             .map(pair -> new int[]{Integer.parseInt(pair[0]), Integer.parseInt(pair[1])})
             .toList();
 

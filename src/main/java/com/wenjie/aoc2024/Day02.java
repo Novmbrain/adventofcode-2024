@@ -1,7 +1,6 @@
 package com.wenjie.aoc2024;
 
 import com.google.common.annotations.VisibleForTesting;
-import com.wenjie.aoc2024.utils.Utils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
@@ -10,7 +9,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Day02 extends AbstractDay{
+import static com.wenjie.aoc2024.utils.Utils.readFile;
+
+public class Day02 extends AbstractDay {
     private static final int minGap = 1;
     private static final int maxGap = 3;
     private List<List<Integer>> reports;
@@ -23,7 +24,7 @@ public class Day02 extends AbstractDay{
 
 
     public Day02(String file) throws IOException {
-        String input = Utils.readFile(file);
+        this.input = readFile(file);
         String[] lines = StringUtils.split(input, "\n");
 
         reports = Arrays.stream(lines)
@@ -85,7 +86,7 @@ public class Day02 extends AbstractDay{
         for (int i = 0; i < levels.size() - 1; i++) {
             int current = levels.get(i);
             int next = levels.get(i + 1);
-            int diff = isIncreasing ?  next - current : current - next;
+            int diff = isIncreasing ? next - current : current - next;
             if (matchSafeCondition(diff)) {
                 return false;
             }
